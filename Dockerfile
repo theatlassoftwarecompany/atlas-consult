@@ -9,14 +9,14 @@ RUN apk add --no-cache python3 make g++
 # Copy package files
 COPY package*.json ./
 
-# Install dependencies (rebuild native modules for Alpine)
-RUN npm ci
+# Install dependencies and rebuild native modules for Alpine/musl
+RUN npm ci && npm rebuild lightningcss
 
 # Copy source code
 COPY . .
 
-# Build the application
-RUN npm run build
+# Build the application (disable Turbopack for compatibility)
+RUN NEXT_TURBOPACK=0 npm run build
 
 # Production stage
 FROM node:20-alpine AS runner
