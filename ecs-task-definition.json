@@ -5,11 +5,22 @@
   "cpu": "256",
   "memory": "512",
   "executionRoleArn": "arn:aws:iam::879986119914:role/ecsTaskExecutionRole",
+  "taskRoleArn": "arn:aws:iam::879986119914:role/atlas-consult-task-role",
   "containerDefinitions": [
     {
       "name": "atlas-consult",
       "image": "879986119914.dkr.ecr.eu-west-2.amazonaws.com/atlas-consult:latest",
       "essential": true,
+      "environment": [
+        {
+          "name": "AWS_REGION",
+          "value": "eu-west-2"
+        },
+        {
+          "name": "S3_BUCKET_NAME",
+          "value": "atlas-consult-contact-submissions"
+        }
+      ],
       "portMappings": [
         {
           "containerPort": 3000,
@@ -26,7 +37,7 @@
         }
       },
       "healthCheck": {
-        "command": ["CMD-SHELL", "curl -f http://localhost:3000/ || exit 1"],
+        "command": ["CMD-SHELL", "node -e \"require('http').get('http://localhost:3000/', (r) => process.exit(r.statusCode === 200 ? 0 : 1)).on('error', () => process.exit(1))\""],
         "interval": 30,
         "timeout": 5,
         "retries": 3,
