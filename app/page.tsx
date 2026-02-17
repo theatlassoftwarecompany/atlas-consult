@@ -1,15 +1,31 @@
+'use client';
+
 import Link from "next/link";
+import Image from "next/image";
+import { useState } from "react";
 
 export default function Home() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="border-b border-gray-200">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="flex h-16 items-center justify-between">
+          <div className="flex items-center justify-between py-4">
             <div className="flex items-center">
-              <h1 className="text-2xl font-semibold text-primary-dark">Atlas Consult</h1>
+              <Link href="/" className="flex items-center">
+                <Image
+                  src="/logo.png"
+                  alt="Atlas Consult Logo"
+                  width={300}
+                  height={200}
+                  priority
+                />
+              </Link>
             </div>
+
+            {/* Desktop Navigation */}
             <div className="hidden md:flex md:items-center md:gap-8">
               <Link href="#services" className="text-sm font-medium text-gray-600 hover:text-primary transition-colors">
                 Services
@@ -17,19 +33,78 @@ export default function Home() {
               <Link href="#approach" className="text-sm font-medium text-gray-600 hover:text-primary transition-colors">
                 Approach
               </Link>
-              <Link href="#contact" className="text-sm font-medium text-gray-600 hover:text-primary transition-colors">
+              <Link href="/contact" className="text-sm font-medium text-gray-600 hover:text-primary transition-colors">
                 Contact
               </Link>
               <Link
-                href="#contact"
+                href="/contact"
                 className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-dark transition-colors"
               >
                 Get Started
               </Link>
             </div>
+
+            {/* Mobile menu button */}
+            <div className="flex md:hidden">
+              <button
+                type="button"
+                className="inline-flex items-center justify-center rounded-md p-2 text-gray-600 hover:bg-gray-100 hover:text-primary"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              >
+                <span className="sr-only">Open main menu</span>
+                {mobileMenuOpen ? (
+                  <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                ) : (
+                  <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                  </svg>
+                )}
+              </button>
+            </div>
           </div>
         </div>
+
+        {/* Mobile menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden border-t border-gray-200">
+            <div className="space-y-1 px-6 py-4">
+              <Link
+                href="#services"
+                className="block rounded-md px-3 py-2 text-base font-medium text-gray-600 hover:bg-gray-100 hover:text-primary"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Services
+              </Link>
+              <Link
+                href="#approach"
+                className="block rounded-md px-3 py-2 text-base font-medium text-gray-600 hover:bg-gray-100 hover:text-primary"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Approach
+              </Link>
+              <Link
+                href="/contact"
+                className="block rounded-md px-3 py-2 text-base font-medium text-gray-600 hover:bg-gray-100 hover:text-primary"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Contact
+              </Link>
+              <Link
+                href="/contact"
+                className="block rounded-md bg-primary px-3 py-2 text-base font-medium text-white hover:bg-primary-dark"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Get Started
+              </Link>
+            </div>
+          </div>
+        )}
       </nav>
+
+      {/* Spacer for fixed navigation */}
+      <div className="h-20 md:h-24"></div>
 
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-b from-gray-50 to-white">
@@ -44,7 +119,7 @@ export default function Home() {
             </p>
             <div className="mt-10 flex items-center justify-center gap-4">
               <Link
-                href="#contact"
+                href="/contact"
                 className="rounded-md bg-primary px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-primary-dark transition-colors"
               >
                 Schedule Consultation
@@ -129,8 +204,79 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Principal Consultant Section */}
+      <section className="py-24 sm:py-32 bg-gray-50">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-12 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-center">
+            {/* Image */}
+            <div className="relative">
+              <div className="aspect-square overflow-hidden rounded-2xl bg-gray-100">
+                <Image
+                  src="/founder.jpg"
+                  alt="Principal Consultant"
+                  width={600}
+                  height={600}
+                  className="object-cover w-full h-full"
+                />
+              </div>
+            </div>
+
+            {/* Content */}
+            <div>
+              <div className="text-base font-semibold leading-7 text-accent">Meet Our Principal</div>
+              <h2 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                Kingsley Osime - IEEE
+              </h2>
+              <p className="mt-2 text-lg text-primary font-medium">
+                Principal Consultant
+              </p>
+              <div className="mt-6 space-y-4 text-base leading-7 text-gray-600">
+                <p>
+                  With over 15 years of experience in AI and machine learning, Kingsley has helped numerous Fortune 500 companies successfully navigate their AI transformation journeys.
+                </p>
+                <p>
+                  Currently Strategy and Transformation consultant at Capgemini Invent, Kingsley brings deep expertise in strategic planning, technical architecture, and hands-on implementation of enterprise AI solutions.
+                </p>
+                <p>
+                  Kingsley holds a post graduate degree in Cognitive Computing from University of London and is a recognized thought leader in the AI space.
+                </p>
+              </div>
+              <div className="mt-8">
+                <h3 className="text-sm font-semibold text-gray-900">Key Expertise</h3>
+                <ul className="mt-4 space-y-2 text-sm text-gray-600">
+                  <li className="flex items-start">
+                    <svg className="h-5 w-5 text-accent mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    AI Strategy & Roadmap Development
+                  </li>
+                  <li className="flex items-start">
+                    <svg className="h-5 w-5 text-accent mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    Machine Learning & Deep Learning
+                  </li>
+                  <li className="flex items-start">
+                    <svg className="h-5 w-5 text-accent mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    Enterprise AI Architecture
+                  </li>
+                  <li className="flex items-start">
+                    <svg className="h-5 w-5 text-accent mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                    </svg>
+                    Change Management & Team Enablement
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Approach Section */}
-      <section id="approach" className="py-24 sm:py-32 bg-gray-50">
+      <section id="approach" className="py-24 sm:py-32 bg-white">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:text-center">
             <h2 className="text-base font-semibold leading-7 text-accent">Our Approach</h2>
@@ -213,7 +359,7 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8">
           <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
             <p className="text-sm leading-5 text-gray-400">
-              &copy; 2025 Atlas Consult. All rights reserved.
+              &copy; 2025 The Atlas Company. All rights reserved.
             </p>
             <div className="flex gap-6">
               <Link href="#services" className="text-sm text-gray-400 hover:text-white transition-colors">
