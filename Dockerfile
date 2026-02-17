@@ -1,13 +1,13 @@
-# Build stage - use slim (Debian-based with glibc) instead of Alpine
-FROM node:20-slim AS builder
+# Build stage
+FROM node:20 AS builder
 
 WORKDIR /app
 
 # Copy package files
-COPY package*.json ./
+COPY package.json package-lock.json ./
 
-# Install dependencies
-RUN npm ci
+# Clean install - delete lockfile and reinstall to get correct native binaries
+RUN rm -f package-lock.json && npm install
 
 # Copy source code
 COPY . .
@@ -15,7 +15,7 @@ COPY . .
 # Build the application
 RUN npm run build
 
-# Production stage - also use slim for consistency
+# Production stage
 FROM node:20-slim AS runner
 
 WORKDIR /app
