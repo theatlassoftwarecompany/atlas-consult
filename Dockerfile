@@ -9,8 +9,8 @@ RUN apk add --no-cache python3 make g++
 # Copy package files
 COPY package*.json ./
 
-# Install dependencies and rebuild native modules for Alpine/musl
-RUN npm ci && npm rebuild lightningcss
+# Install dependencies and add musl-specific lightningcss binary
+RUN npm ci && npm install lightningcss-linux-x64-musl
 
 # Copy source code
 COPY . .
