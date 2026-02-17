@@ -1,6 +1,9 @@
 import { S3Client, PutObjectCommand } from '@aws-sdk/client-s3';
 import { NextRequest, NextResponse } from 'next/server';
 
+// Force Node.js runtime (required for AWS SDK credential resolution)
+export const runtime = 'nodejs';
+
 const s3Client = new S3Client({
   region: process.env.AWS_REGION || 'eu-west-2',
 });
