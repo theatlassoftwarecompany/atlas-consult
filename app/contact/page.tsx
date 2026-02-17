@@ -25,16 +25,23 @@ export default function ContactPage() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission - replace with actual API call
     try {
-      // TODO: Replace with actual form submission logic
-      // Example: await fetch('/api/contact', { method: 'POST', body: JSON.stringify(formData) })
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      if (!response.ok) {
+        throw new Error('Failed to submit form');
+      }
 
       setSubmitStatus('success');
       setFormData({ name: '', email: '', company: '', phone: '', message: '' });
     } catch (error) {
+      console.error('Form submission error:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
