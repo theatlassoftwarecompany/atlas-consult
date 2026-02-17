@@ -1,33 +1,30 @@
-# Build stage
-FROM node:20-alpine AS builder
+# Build stage - use slim (Debian-based with glibc) instead of Alpine
+FROM node:20-slim AS builder
 
 WORKDIR /app
-
-# Install build dependencies for native modules
-RUN apk add --no-cache python3 make g++
 
 # Copy package files
 COPY package*.json ./
 
-# Install dependencies and add musl-specific lightningcss binary
-RUN npm ci && npm install lightningcss-linux-x64-musl
+# Install dependencies
+RUN npm ci
 
 # Copy source code
 COPY . .
 
-# Build the application (disable Turbopack for compatibility)
-RUN NEXT_TURBOPACK=0 npm run build
+# Build the application
+RUN npm run build
 
-# Production stage
-FROM node:20-alpine AS runner
+# Production stage - also use slim for consistency
+FROM node:20-slim AS runner
 
 WORKDIR /app
 
 ENV NODE_ENV=production
 
 # Create non-root user
-RUN addgroup --system --gid 1001 nodejs
-RUN adduser --system --uid 1001 nextjs
+RUN groupadd --system --gid 1001 nodejs && \
+    useradd --system --uid 1001 --gid nodejs nextjs
 
 # Copy built application
 COPY --from=builder /app/public ./public
