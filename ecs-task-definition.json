@@ -9,7 +9,7 @@
   "containerDefinitions": [
     {
       "name": "atlas-consult",
-      "image": "879986119914.dkr.ecr.eu-west-2.amazonaws.com/atlas-consult:latest",
+      "image": "879986119914.dkr.ecr.eu-west-2.amazonaws.com/atlas-consult:61e485be41850956105413d2d8c966791e78d9ec",
       "essential": true,
       "environment": [
         {
