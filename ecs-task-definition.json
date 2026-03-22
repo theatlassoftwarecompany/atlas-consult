@@ -5,22 +5,12 @@
   "cpu": "256",
   "memory": "512",
   "executionRoleArn": "arn:aws:iam::879986119914:role/ecsTaskExecutionRole",
-  "taskRoleArn": "arn:aws:iam::879986119914:role/atlas-consult-task-role",
   "containerDefinitions": [
     {
       "name": "atlas-consult",
       "image": "879986119914.dkr.ecr.eu-west-2.amazonaws.com/atlas-consult:61e485be41850956105413d2d8c966791e78d9ec",
       "essential": true,
-      "environment": [
-        {
-          "name": "AWS_REGION",
-          "value": "eu-west-2"
-        },
-        {
-          "name": "S3_BUCKET_NAME",
-          "value": "atlas-consult-contact-submissions"
-        }
-      ],
+      "environment": [],
       "portMappings": [
         {
           "containerPort": 3000,

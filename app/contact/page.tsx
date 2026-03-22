@@ -26,7 +26,7 @@ export default function ContactPage() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('/api/contact', {
+      const response = await fetch('https://6qzulpm59c.execute-api.eu-west-2.amazonaws.com/prod/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
