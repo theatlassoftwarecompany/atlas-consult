@@ -133,11 +133,12 @@ export default function Home() {
         </div>
 
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8 py-24 sm:py-32">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="mx-auto max-w-2xl lg:max-w-4xl text-center">
             <p className="text-base font-semibold text-accent mb-4">80% of AI pilots never reach production</p>
             <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
-              We Help You Understand{" "}
-              <span className="text-primary">Why AI Fails to Scale</span>
+              We Help You Understand
+              <br />
+              <span className="text-accent">Why AI Fails to Scale</span>
             </h1>
             <p className="mt-6 text-lg leading-8 text-gray-300">
               Most organisations struggle to move AI from pilot to production. We diagnose the real barriers — technical debt, organisational friction, governance gaps — and design systems that actually work at scale.
