@@ -33,6 +33,11 @@ export default function Home() {
               <Link href="#approach" className="text-sm font-medium text-gray-600 hover:text-primary transition-colors">
                 Approach
               </Link>
+{/* Hidden for now
+              <Link href="#insights" className="text-sm font-medium text-gray-600 hover:text-primary transition-colors">
+                Insights
+              </Link>
+*/}
               <Link href="/contact" className="text-sm font-medium text-gray-600 hover:text-primary transition-colors">
                 Contact
               </Link>
@@ -84,6 +89,15 @@ export default function Home() {
               >
                 Approach
               </Link>
+{/* Hidden for now
+              <Link
+                href="#insights"
+                className="block rounded-md px-3 py-2 text-base font-medium text-gray-600 hover:bg-gray-100 hover:text-primary"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Insights
+              </Link>
+*/}
               <Link
                 href="/contact"
                 className="block rounded-md px-3 py-2 text-base font-medium text-gray-600 hover:bg-gray-100 hover:text-primary"
@@ -107,28 +121,41 @@ export default function Home() {
       <div className="h-20 md:h-24"></div>
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-gray-50 to-white">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8 py-24 sm:py-32">
+      <section className="relative overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <Image
+            src="/businessImage2.jpg"
+            alt="AI Systems Background"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-gray-900/95 via-gray-900/85 to-gray-900/70" />
+        </div>
+
+        <div className="relative mx-auto max-w-7xl px-6 lg:px-8 py-24 sm:py-32">
           <div className="mx-auto max-w-2xl text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-              Transform Your Business with{" "}
-              <span className="text-primary">AI Strategy</span>
+            <p className="text-base font-semibold text-accent mb-4">80% of AI pilots never reach production</p>
+            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
+              We Help You Understand{" "}
+              <span className="text-primary">Why AI Fails to Scale</span>
             </h1>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
-              Enterprise AI consulting that delivers measurable results. We help organizations navigate AI adoption with strategic planning, technical assessment, and implementation roadmaps.
+            <p className="mt-6 text-lg leading-8 text-gray-300">
+              Most organisations struggle to move AI from pilot to production. We diagnose the real barriers — technical debt, organisational friction, governance gaps — and design systems that actually work at scale.
             </p>
             <div className="mt-10 flex items-center justify-center gap-4">
               <Link
                 href="/contact"
                 className="rounded-md bg-primary px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-primary-dark transition-colors"
               >
-                Schedule Consultation
+                Diagnose Your AI Challenges
               </Link>
               <Link
                 href="#services"
-                className="rounded-md border border-gray-300 bg-white px-6 py-3 text-base font-medium text-gray-700 hover:border-primary hover:text-primary transition-colors"
+                className="rounded-md border border-white/30 bg-white/10 backdrop-blur-sm px-6 py-3 text-base font-medium text-white hover:bg-white/20 transition-colors"
               >
-                Our Services
+                How We Help
               </Link>
             </div>
           </div>
@@ -139,12 +166,12 @@ export default function Home() {
       <section id="services" className="py-24 sm:py-32 bg-white">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:text-center">
-            <h2 className="text-base font-semibold leading-7 text-accent">Our Services</h2>
+            <h2 className="text-base font-semibold leading-7 text-accent">How We Help</h2>
             <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              Comprehensive AI Solutions
+              Diagnose. Design. Scale.
             </p>
             <p className="mt-6 text-lg leading-8 text-gray-600">
-              From strategy to implementation, we guide your AI transformation journey.
+              We identify why your AI initiatives are stuck and build the systems, governance, and architecture to move them forward.
             </p>
           </div>
           <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
@@ -154,14 +181,14 @@ export default function Home() {
                 <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
                   <div className="rounded-lg bg-primary/10 p-2">
                     <svg className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
                     </svg>
                   </div>
-                  AI Readiness Assessment
+                  AI Scaling Diagnostics
                 </dt>
                 <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
                   <p className="flex-auto">
-                    Comprehensive evaluation of your organization's AI maturity, data infrastructure, and technical capabilities. Identify opportunities and barriers to AI adoption.
+                    Why isn't your AI delivering value? We analyse technical debt, data quality, integration challenges, and organisational readiness to identify the real blockers.
                   </p>
                 </dd>
               </div>
@@ -171,14 +198,14 @@ export default function Home() {
                 <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
                   <div className="rounded-lg bg-primary/10 p-2">
                     <svg className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
                     </svg>
                   </div>
-                  Strategic AI Roadmap
+                  Governance & Risk Architecture
                 </dt>
                 <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
                   <p className="flex-auto">
-                    Develop actionable implementation plans aligned with your business objectives. Clear timelines, resource requirements, and ROI projections.
+                    AI in regulated environments requires discipline. We design governance frameworks, risk controls, and compliance structures that enable scale without compromising safety.
                   </p>
                 </dd>
               </div>
@@ -188,14 +215,14 @@ export default function Home() {
                 <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
                   <div className="rounded-lg bg-primary/10 p-2">
                     <svg className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12a7.5 7.5 0 0015 0m-15 0a7.5 7.5 0 1115 0m-15 0H3m16.5 0H21m-1.5 0H12m-8.457 3.077l1.41-.513m14.095-5.13l1.41-.513M5.106 17.785l1.15-.964m11.49-9.642l1.149-.964M7.501 19.795l.75-1.3m7.5-12.99l.75-1.3m-6.063 16.658l.26-1.477m2.605-14.772l.26-1.477m0 17.726l-.26-1.477M10.698 4.614l-.26-1.477M16.5 19.794l-.75-1.299M7.5 4.205L12 12m6.894 5.785l-1.149-.964M6.256 7.178l-1.15-.964m15.352 8.864l-1.41-.513M4.954 9.435l-1.41-.514M12.002 12l-3.75 6.495" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 3v11.25A2.25 2.25 0 006 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0118 16.5h-2.25m-7.5 0h7.5m-7.5 0l-1 3m8.5-3l1 3m0 0l.5 1.5m-.5-1.5h-9.5m0 0l-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6" />
                     </svg>
                   </div>
-                  Technical Implementation
+                  Production-Ready Architecture
                 </dt>
                 <dd className="mt-4 flex flex-auto flex-col text-base leading-7 text-gray-600">
                   <p className="flex-auto">
-                    Hands-on support for AI model development, integration, and deployment. From proof-of-concept to production-grade solutions.
+                    Moving from pilot to production requires more than code. We design integration patterns, operational models, and technical architecture that sustains AI at enterprise scale.
                   </p>
                 </dd>
               </div>
@@ -223,50 +250,47 @@ export default function Home() {
 
             {/* Content */}
             <div>
-              <div className="text-base font-semibold leading-7 text-accent">Meet Our Principal</div>
+              <div className="text-base font-semibold leading-7 text-accent">Principal Consultant</div>
               <h2 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                Kingsley Osime - IEEE
+                Kingsley Osime<span className="text-lg text-primary font-medium ml-3">IEEE · ACM</span>
               </h2>
-              <p className="mt-2 text-lg text-primary font-medium">
-                Principal Consultant
-              </p>
               <div className="mt-6 space-y-4 text-base leading-7 text-gray-600">
                 <p>
-                  With over 15 years of experience in AI and machine learning, Kingsley has helped numerous Fortune 500 companies successfully navigate their AI transformation journeys.
+                  Kingsley's research focuses on why AI systems fail to scale — exploring the mathematical limits of optimisation in high-dimensional spaces and the organisational barriers that prevent AI moving from pilot to production.
                 </p>
                 <p>
-                  Currently Strategy and Transformation consultant at Capgemini Invent, Kingsley brings deep expertise in strategic planning, technical architecture, and hands-on implementation of enterprise AI solutions.
+                  Currently a Strategy and Transformation consultant at Capgemini Invent, Kingsley works at the intersection of AI architecture, governance, and enterprise delivery — helping organisations understand not just what AI can do, but why their current approaches aren't working.
                 </p>
                 <p>
-                  Kingsley holds a post graduate degree in Cognitive Computing from University of London and is a recognized thought leader in the AI space.
+                  He holds a postgraduate degree in Cognitive Computing from the University of London, with thesis research on particle swarm optimisation and its limitations in complex problem spaces.
                 </p>
               </div>
               <div className="mt-8">
-                <h3 className="text-sm font-semibold text-gray-900">Key Expertise</h3>
+                <h3 className="text-sm font-semibold text-gray-900">Focus Areas</h3>
                 <ul className="mt-4 space-y-2 text-sm text-gray-600">
                   <li className="flex items-start">
                     <svg className="h-5 w-5 text-accent mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    AI Strategy & Roadmap Development
+                    AI Scaling Barriers & Failure Analysis
                   </li>
                   <li className="flex items-start">
                     <svg className="h-5 w-5 text-accent mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    Machine Learning & Deep Learning
+                    Governance & Risk in Regulated Industries
                   </li>
                   <li className="flex items-start">
                     <svg className="h-5 w-5 text-accent mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    Enterprise AI Architecture
+                    Enterprise AI Architecture & Integration
                   </li>
                   <li className="flex items-start">
                     <svg className="h-5 w-5 text-accent mr-2 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
-                    Change Management & Team Enablement
+                    Optimisation Theory & System Design
                   </li>
                 </ul>
               </div>
@@ -281,7 +305,10 @@ export default function Home() {
           <div className="mx-auto max-w-2xl lg:text-center">
             <h2 className="text-base font-semibold leading-7 text-accent">Our Approach</h2>
             <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              Strategic, Practical, Measurable
+              Research-Led. Reality-Grounded.
+            </p>
+            <p className="mt-6 text-lg leading-8 text-gray-600">
+              We don't sell AI hype. We diagnose why your AI isn't working and design systems that do.
             </p>
           </div>
           <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24">
@@ -293,9 +320,9 @@ export default function Home() {
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900">Discovery & Assessment</h3>
+                  <h3 className="text-lg font-semibold text-gray-900">Diagnose the Real Problem</h3>
                   <p className="mt-2 text-base text-gray-600">
-                    Comprehensive analysis of your current state, business goals, and technical landscape. We identify quick wins and long-term opportunities.
+                    Most AI failures aren't technical — they're organisational. We analyse your pilots, infrastructure, governance, and team dynamics to identify what's actually blocking scale.
                   </p>
                 </div>
               </div>
@@ -307,9 +334,9 @@ export default function Home() {
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900">Strategy & Planning</h3>
+                  <h3 className="text-lg font-semibold text-gray-900">Design for Production</h3>
                   <p className="mt-2 text-base text-gray-600">
-                    Develop clear, actionable roadmaps with defined milestones, resource requirements, and success metrics. Align AI initiatives with business value.
+                    We architect solutions that work in the real world — with legacy systems, compliance requirements, and organisational constraints. Not theoretical frameworks.
                   </p>
                 </div>
               </div>
@@ -321,9 +348,9 @@ export default function Home() {
                   </div>
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-gray-900">Implementation & Support</h3>
+                  <h3 className="text-lg font-semibold text-gray-900">Enable Sustainable Scale</h3>
                   <p className="mt-2 text-base text-gray-600">
-                    Hands-on execution support from proof-of-concept through production deployment. Continuous optimization and team enablement.
+                    A working pilot is just the start. We build the governance, operational models, and team capabilities needed to sustain AI value over time.
                   </p>
                 </div>
               </div>
@@ -332,23 +359,103 @@ export default function Home() {
         </div>
       </section>
 
+{/* Insights Section - Hidden for now
+      <section id="insights" className="py-24 sm:py-32 bg-gray-50">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl lg:text-center">
+            <h2 className="text-base font-semibold leading-7 text-accent">Insights</h2>
+            <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              Research & Perspectives
+            </p>
+            <p className="mt-6 text-lg leading-8 text-gray-600">
+              Original thinking on why AI initiatives fail and what it takes to build systems that scale.
+            </p>
+          </div>
+          <div className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+            <article className="flex flex-col items-start bg-white rounded-2xl p-8 shadow-sm ring-1 ring-gray-200">
+              <div className="flex items-center gap-x-4 text-xs">
+                <span className="rounded-full bg-primary/10 px-3 py-1.5 font-medium text-primary">
+                  Coming Soon
+                </span>
+              </div>
+              <div className="group relative">
+                <h3 className="mt-4 text-lg font-semibold leading-6 text-gray-900">
+                  Why 80% of AI Pilots Never Reach Production
+                </h3>
+                <p className="mt-4 text-sm leading-6 text-gray-600">
+                  The real barriers aren't technical. Drawing on industry research and delivery experience, we explore the organisational, governance, and architectural factors that trap AI initiatives in pilot purgatory.
+                </p>
+              </div>
+              <div className="mt-6 flex items-center gap-x-4">
+                <div className="text-sm leading-6">
+                  <p className="font-semibold text-gray-900">Kingsley Osime</p>
+                </div>
+              </div>
+            </article>
+
+            <article className="flex flex-col items-start bg-white rounded-2xl p-8 shadow-sm ring-1 ring-gray-200">
+              <div className="flex items-center gap-x-4 text-xs">
+                <span className="rounded-full bg-primary/10 px-3 py-1.5 font-medium text-primary">
+                  Coming Soon
+                </span>
+              </div>
+              <div className="group relative">
+                <h3 className="mt-4 text-lg font-semibold leading-6 text-gray-900">
+                  AI Systems Are High-Dimensional Optimisation Problems
+                </h3>
+                <p className="mt-4 text-sm leading-6 text-gray-600">
+                  What particle swarm optimisation research tells us about tuning complex AI systems — and why most approaches break down as dimensionality increases.
+                </p>
+              </div>
+              <div className="mt-6 flex items-center gap-x-4">
+                <div className="text-sm leading-6">
+                  <p className="font-semibold text-gray-900">Kingsley Osime</p>
+                </div>
+              </div>
+            </article>
+
+            <article className="flex flex-col items-start bg-white rounded-2xl p-8 shadow-sm ring-1 ring-gray-200">
+              <div className="flex items-center gap-x-4 text-xs">
+                <span className="rounded-full bg-primary/10 px-3 py-1.5 font-medium text-primary">
+                  Coming Soon
+                </span>
+              </div>
+              <div className="group relative">
+                <h3 className="mt-4 text-lg font-semibold leading-6 text-gray-900">
+                  Governance as Enabler, Not Blocker
+                </h3>
+                <p className="mt-4 text-sm leading-6 text-gray-600">
+                  In regulated industries, governance is often seen as the enemy of AI innovation. But the organisations that scale AI successfully treat governance as architecture — not afterthought.
+                </p>
+              </div>
+              <div className="mt-6 flex items-center gap-x-4">
+                <div className="text-sm leading-6">
+                  <p className="font-semibold text-gray-900">Kingsley Osime</p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+*/}
+
       {/* CTA Section */}
       <section id="contact" className="py-24 sm:py-32 bg-primary">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-              Ready to Transform Your Business with AI?
+              Stuck in Pilot Purgatory?
             </h2>
             <p className="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-100">
-              Schedule a consultation to discuss your AI strategy and discover how we can help you achieve your goals.
+              If your AI initiatives aren't delivering the value you expected, let's diagnose why — and build a path to production that actually works.
             </p>
             <div className="mt-10 flex items-center justify-center gap-4">
-              <a
-                href="mailto:hello@atlasconsult.ai"
+              <Link
+                href="/contact"
                 className="rounded-md bg-white px-6 py-3 text-base font-medium text-primary shadow-sm hover:bg-gray-100 transition-colors"
               >
-                Contact Us
-              </a>
+                Start the Conversation
+              </Link>
             </div>
           </div>
         </div>
@@ -368,7 +475,12 @@ export default function Home() {
               <Link href="#approach" className="text-sm text-gray-400 hover:text-white transition-colors">
                 Approach
               </Link>
-              <Link href="mailto:hello@atlasconsult.ai" className="text-sm text-gray-400 hover:text-white transition-colors">
+{/* Hidden for now
+              <Link href="#insights" className="text-sm text-gray-400 hover:text-white transition-colors">
+                Insights
+              </Link>
+*/}
+              <Link href="/contact" className="text-sm text-gray-400 hover:text-white transition-colors">
                 Contact
               </Link>
             </div>
