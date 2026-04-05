@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "The Atlas Company | AI Scaling & Governance",
-  description: "80% of AI pilots never reach production. We diagnose why AI initiatives fail to scale and design systems that work in regulated enterprises.",
-  keywords: ["AI scaling", "AI governance", "AI failure", "enterprise AI", "AI consulting", "AI production", "regulated AI"],
+  title: "The Atlas Company | AI Infrastructure Platform",
+  description: "Atlas is a cloud-agnostic AI platform for regulated enterprises. One interface to deploy, configure, and optimise AI systems — powered by principled optimisation.",
+  keywords: ["AI platform", "AI infrastructure", "AI optimisation", "regulated AI", "enterprise AI", "cloud agnostic AI", "Arbitor"],
 };
 
 export default function RootLayout({
