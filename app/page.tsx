@@ -2,15 +2,25 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useScrollAnimation } from "./hooks/useScrollAnimation";
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [navScrolled, setNavScrolled] = useState(false);
+  useScrollAnimation();
+
+  useEffect(() => {
+    const onScroll = () => setNavScrolled(window.scrollY > 10);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
 
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200">
+      <nav className={`fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 transition-shadow duration-300 ${navScrolled ? 'nav-scrolled' : ''}`}>
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="flex items-center justify-between py-4">
             <div className="flex items-center">
@@ -37,7 +47,7 @@ export default function Home() {
                 Contact
               </Link>
               <Link
-                href="/contact"
+                href="/early-access"
                 className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-dark transition-colors"
               >
                 Get Early Access
@@ -92,7 +102,7 @@ export default function Home() {
                 Contact
               </Link>
               <Link
-                href="/contact"
+                href="/early-access"
                 className="block rounded-md bg-primary px-3 py-2 text-base font-medium text-white hover:bg-primary-dark"
                 onClick={() => setMobileMenuOpen(false)}
               >
@@ -119,18 +129,18 @@ export default function Home() {
 
         <div className="relative mx-auto max-w-7xl px-6 lg:px-8 py-24 sm:py-32">
           <div className="mx-auto max-w-2xl lg:max-w-4xl text-center">
-            <p className="text-base font-semibold text-accent mb-4">The AI infrastructure layer for regulated enterprises</p>
-            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-6xl">
+            <p className="hero-enter text-base font-semibold text-accent mb-4">The AI infrastructure layer for regulated enterprises</p>
+            <h1 className="hero-enter text-4xl font-bold tracking-tight text-white sm:text-6xl" style={{transitionDelay: '120ms'}}>
               One Platform.
               <br />
               <span className="text-accent">Every AI Service You Need.</span>
             </h1>
-            <p className="mt-6 text-lg leading-8 text-gray-300">
+            <p className="hero-enter mt-6 text-lg leading-8 text-gray-300" style={{transitionDelay: '240ms'}}>
               Atlas is a cloud-agnostic AI platform that gives enterprises a unified interface to deploy, configure, and optimise AI systems — while we handle the infrastructure complexity behind the scenes.
             </p>
-            <div className="mt-10 flex items-center justify-center gap-4">
+            <div className="hero-enter mt-10 flex items-center justify-center gap-4" style={{transitionDelay: '360ms'}}>
               <Link
-                href="/contact"
+                href="/early-access"
                 className="rounded-md bg-primary px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-primary-dark transition-colors"
               >
                 Get Early Access
@@ -149,7 +159,7 @@ export default function Home() {
       {/* Problem Section */}
       <section className="py-24 sm:py-32 bg-white">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl lg:text-center">
+          <div className="zoom-in mx-auto max-w-2xl lg:text-center">
             <h2 className="text-base font-semibold leading-7 text-accent">Why Atlas Exists</h2>
             <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
               80% of AI Pilots Never Reach Production
@@ -160,7 +170,7 @@ export default function Home() {
           </div>
           <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
             <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
-              <div className="flex flex-col">
+              <div className="zoom-in flex flex-col" style={{transitionDelay: '0ms'}}>
                 <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
                   <div className="rounded-lg bg-primary/10 p-2">
                     <svg className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
@@ -174,7 +184,7 @@ export default function Home() {
                 </dd>
               </div>
 
-              <div className="flex flex-col">
+              <div className="zoom-in flex flex-col" style={{transitionDelay: '120ms'}}>
                 <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
                   <div className="rounded-lg bg-primary/10 p-2">
                     <svg className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
@@ -189,7 +199,7 @@ export default function Home() {
                 </dd>
               </div>
 
-              <div className="flex flex-col">
+              <div className="zoom-in flex flex-col" style={{transitionDelay: '240ms'}}>
                 <dt className="flex items-center gap-x-3 text-base font-semibold leading-7 text-gray-900">
                   <div className="rounded-lg bg-primary/10 p-2">
                     <svg className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
@@ -210,7 +220,7 @@ export default function Home() {
       {/* Platform Overview */}
       <section className="py-24 sm:py-32 bg-gray-50">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl lg:text-center">
+          <div className="hero-enter mx-auto max-w-2xl lg:text-center">
             <h2 className="text-base font-semibold leading-7 text-accent">The Platform</h2>
             <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
               AI Infrastructure, Unified
@@ -221,7 +231,7 @@ export default function Home() {
           </div>
           <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
             <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-              <div className="bg-white rounded-2xl p-8 shadow-sm ring-1 ring-gray-200">
+              <div className="hero-enter bg-white rounded-2xl p-8 shadow-sm ring-1 ring-gray-200" style={{transitionDelay: '0ms'}}>
                 <div className="flex items-center gap-4 mb-4">
                   <div className="rounded-lg bg-primary/10 p-2">
                     <svg className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
@@ -233,7 +243,7 @@ export default function Home() {
                 <p className="text-gray-600">Deploy on AWS, Azure, or GCP. Atlas handles the integration — you get one consistent interface regardless of what's running underneath.</p>
               </div>
 
-              <div className="bg-white rounded-2xl p-8 shadow-sm ring-1 ring-gray-200">
+              <div className="hero-enter bg-white rounded-2xl p-8 shadow-sm ring-1 ring-gray-200" style={{transitionDelay: '120ms'}}>
                 <div className="flex items-center gap-4 mb-4">
                   <div className="rounded-lg bg-primary/10 p-2">
                     <svg className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
@@ -245,7 +255,7 @@ export default function Home() {
                 <p className="text-gray-600">Powered by research-grade optimisation algorithms. Atlas tunes your AI systems scientifically — not by trial and error.</p>
               </div>
 
-              <div className="bg-white rounded-2xl p-8 shadow-sm ring-1 ring-gray-200">
+              <div className="hero-enter bg-white rounded-2xl p-8 shadow-sm ring-1 ring-gray-200" style={{transitionDelay: '240ms'}}>
                 <div className="flex items-center gap-4 mb-4">
                   <div className="rounded-lg bg-primary/10 p-2">
                     <svg className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
@@ -257,7 +267,7 @@ export default function Home() {
                 <p className="text-gray-600">Built for regulated industries. Every decision is logged, benchmarked, and auditable — so your AI can meet the standards your sector demands.</p>
               </div>
 
-              <div className="bg-white rounded-2xl p-8 shadow-sm ring-1 ring-gray-200">
+              <div className="hero-enter bg-white rounded-2xl p-8 shadow-sm ring-1 ring-gray-200" style={{transitionDelay: '360ms'}}>
                 <div className="flex items-center gap-4 mb-4">
                   <div className="rounded-lg bg-primary/10 p-2">
                     <svg className="h-6 w-6 text-primary" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
@@ -276,7 +286,7 @@ export default function Home() {
       {/* Products Section */}
       <section id="products" className="py-24 sm:py-32 bg-white">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl lg:text-center">
+          <div className="rise-up mx-auto max-w-2xl lg:text-center">
             <h2 className="text-base font-semibold leading-7 text-accent">Our Products</h2>
             <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
               Built on the Atlas Platform
@@ -286,9 +296,9 @@ export default function Home() {
             </p>
           </div>
           <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
-            <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
+            <div className="grid grid-cols-1 gap-8 lg:grid-cols-2 stagger">
               {/* Arbitor */}
-              <div className="flex flex-col bg-gray-50 rounded-2xl p-8 ring-1 ring-gray-200">
+              <div className="slide-left flex flex-col bg-gray-50 rounded-2xl p-8 ring-1 ring-gray-200">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-xl font-bold text-gray-900">Arbitor</h3>
                   <span className="rounded-full bg-accent/10 px-3 py-1 text-xs font-medium text-accent">Early Access</span>
@@ -310,7 +320,7 @@ export default function Home() {
               </div>
 
               {/* Coming Soon */}
-              <div className="flex flex-col bg-gray-50 rounded-2xl p-8 ring-1 ring-gray-200 opacity-60">
+              <div className="slide-right flex flex-col bg-gray-50 rounded-2xl p-8 ring-1 ring-gray-200 opacity-60">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-xl font-bold text-gray-900">More Coming</h3>
                   <span className="rounded-full bg-gray-200 px-3 py-1 text-xs font-medium text-gray-500">Roadmap</span>
@@ -336,7 +346,7 @@ export default function Home() {
       <section className="py-24 sm:py-32 bg-gray-50">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-12 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-center">
-            <div className="relative">
+            <div className="slide-left relative">
               <div className="aspect-square overflow-hidden rounded-2xl bg-gray-100">
                 <Image
                   src="/founder.jpg"
@@ -347,7 +357,7 @@ export default function Home() {
                 />
               </div>
             </div>
-            <div>
+            <div className="slide-right">
               <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                 We Started Diagnosing Why AI Fails.
                 <br />
@@ -389,7 +399,7 @@ export default function Home() {
             </p>
             <div className="mt-10 flex items-center justify-center gap-4">
               <Link
-                href="/contact"
+                href="/early-access"
                 className="rounded-md bg-white px-6 py-3 text-base font-medium text-primary shadow-sm hover:bg-gray-100 transition-colors"
               >
                 Get Early Access
