@@ -11,6 +11,24 @@
       "image": "879986119914.dkr.ecr.eu-west-2.amazonaws.com/atlas-consult:61e485be41850956105413d2d8c966791e78d9ec",
       "essential": true,
       "environment": [],
+      "secrets": [
+        {
+          "name": "DB_HOST",
+          "valueFrom": "arn:aws:ssm:eu-west-2:879986119914:parameter/arbitor/DB_HOST"
+        },
+        {
+          "name": "DB_USER",
+          "valueFrom": "arn:aws:ssm:eu-west-2:879986119914:parameter/arbitor/DB_USER"
+        },
+        {
+          "name": "DB_PASSWORD",
+          "valueFrom": "arn:aws:ssm:eu-west-2:879986119914:parameter/arbitor/DB_PASSWORD"
+        },
+        {
+          "name": "DB_NAME",
+          "valueFrom": "arn:aws:ssm:eu-west-2:879986119914:parameter/arbitor/DB_NAME"
+        }
+      ],
       "portMappings": [
         {
           "containerPort": 3000,
