@@ -1,10 +1,12 @@
 'use client';
 
 import { useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 export function useScrollAnimation() {
+  const pathname = usePathname();
+
   useEffect(() => {
-    // One-time animations (fade-up, fade-in) — unobserve after first trigger
     const oneTimeObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -17,7 +19,6 @@ export function useScrollAnimation() {
       { threshold: 0.15 }
     );
 
-    // Repeat animations (hero-enter) — fire every time element enters view
     const repeatObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -43,5 +44,5 @@ export function useScrollAnimation() {
       oneTimeObserver.disconnect();
       repeatObserver.disconnect();
     };
-  }, []);
+  }, [pathname]);
 }

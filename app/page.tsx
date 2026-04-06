@@ -3,12 +3,11 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { useScrollAnimation } from "./hooks/useScrollAnimation";
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [navScrolled, setNavScrolled] = useState(false);
-  useScrollAnimation();
+
 
   useEffect(() => {
     const onScroll = () => setNavScrolled(window.scrollY > 10);
