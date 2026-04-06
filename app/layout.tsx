@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import AnimationProvider from "./components/AnimationProvider";
 
 export const metadata: Metadata = {
   title: "The Atlas Company | AI Infrastructure Platform",
@@ -15,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
-        {children}
+        <AnimationProvider>{children}</AnimationProvider>
       </body>
     </html>
   );

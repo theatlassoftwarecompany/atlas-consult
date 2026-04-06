@@ -22,7 +22,7 @@ export default function AboutPage() {
       <section className="py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-12 gap-y-16 lg:mx-0 lg:max-w-none lg:grid-cols-2 lg:items-center">
-            <div className="relative">
+            <div className="slide-left relative">
               <div className="aspect-square overflow-hidden rounded-2xl bg-gray-100">
                 <Image
                   src="/founder.jpg"
@@ -33,7 +33,7 @@ export default function AboutPage() {
                 />
               </div>
             </div>
-            <div>
+            <div className="slide-right">
               <h1 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
                 Kingsley Osime<span className="text-lg text-primary font-medium ml-3">IEEE · ACM</span>
               </h1>
@@ -77,7 +77,7 @@ export default function AboutPage() {
       {/* Mission */}
       <section className="py-16 bg-gray-50">
         <div className="mx-auto max-w-4xl px-6 lg:px-8 text-center">
-          <h2 className="text-2xl font-bold text-gray-900">Our Mission</h2>
+          <h2 className="zoom-in text-2xl font-bold text-gray-900">Our Mission</h2>
           <p className="mt-6 text-lg leading-8 text-gray-600 max-w-2xl mx-auto">
             To make enterprise AI reliable, explainable, and continuously improving — by building the infrastructure layer that regulated industries have been missing.
           </p>

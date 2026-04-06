@@ -9,7 +9,7 @@ export default function ProductsPage() {
             ← Back to Home
           </Link>
           <Link
-            href="/contact"
+            href="/early-access"
             className="rounded-md bg-primary px-4 py-2 text-sm font-medium text-white hover:bg-primary-dark transition-colors"
           >
             Get Early Access
@@ -19,7 +19,7 @@ export default function ProductsPage() {
 
       <section className="py-24 sm:py-32">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl lg:text-center">
+          <div className="hero-enter mx-auto max-w-2xl lg:text-center">
             <h2 className="text-base font-semibold leading-7 text-accent">Atlas Products</h2>
             <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
               Purpose-Built AI Services
@@ -31,7 +31,7 @@ export default function ProductsPage() {
 
           <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-4xl">
             <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-              <div className="flex flex-col bg-gray-50 rounded-2xl p-8 ring-1 ring-gray-200">
+              <div className="slide-left flex flex-col bg-gray-50 rounded-2xl p-8 ring-1 ring-gray-200">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-xl font-bold text-gray-900">Arbitor</h3>
                   <span className="rounded-full bg-accent/10 px-3 py-1 text-xs font-medium text-accent">Early Access</span>
@@ -52,7 +52,7 @@ export default function ProductsPage() {
                 </div>
               </div>
 
-              <div className="flex flex-col bg-gray-50 rounded-2xl p-8 ring-1 ring-gray-200 opacity-60">
+              <div className="slide-right flex flex-col bg-gray-50 rounded-2xl p-8 ring-1 ring-gray-200 opacity-60">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-xl font-bold text-gray-900">More Coming</h3>
                   <span className="rounded-full bg-gray-200 px-3 py-1 text-xs font-medium text-gray-500">Roadmap</span>
