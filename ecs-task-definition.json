@@ -27,6 +27,18 @@
         {
           "name": "DB_NAME",
           "valueFrom": "arn:aws:ssm:eu-west-2:879986119914:parameter/arbitor/DB_NAME"
+        },
+        {
+          "name": "RESEND_API_KEY",
+          "valueFrom": "arn:aws:ssm:eu-west-2:879986119914:parameter/arbitor/RESEND_API_KEY"
+        },
+        {
+          "name": "FROM_EMAIL",
+          "valueFrom": "arn:aws:ssm:eu-west-2:879986119914:parameter/arbitor/FROM_EMAIL"
+        },
+        {
+          "name": "NOTIFY_EMAIL",
+          "valueFrom": "arn:aws:ssm:eu-west-2:879986119914:parameter/arbitor/NOTIFY_EMAIL"
         }
       ],
       "portMappings": [
