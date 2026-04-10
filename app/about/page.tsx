@@ -42,7 +42,7 @@ export default function AboutPage() {
                   Kingsley is a senior technologist and AI strategist who has spent years studying why AI systems fail to scale — uncovering the mathematical limits of optimisation and the organisational barriers that prevent AI from moving out of the pilot stage.
                 </p>
                 <p>
-                  His thesis on particle swarm optimisation revealed a fundamental insight: AI systems degrade sharply when too many parameters are tuned simultaneously. Most teams don't know this. They configure by guesswork and wonder why results are inconsistent.
+                  His research revealed a fundamental insight: AI systems degrade sharply when too many parameters are tuned simultaneously. Most teams don't know this. They configure by guesswork and wonder why results are inconsistent.
                 </p>
                 <p>
                   That research became the foundation for Atlas — a platform that applies principled, staged optimisation to AI systems, so enterprises get consistent, auditable, production-ready results.
