@@ -27,7 +27,7 @@ export default function ArbitorPage() {
             </div>
             <p className="text-xl font-medium text-primary mt-2">AI System Configuration & Optimisation</p>
             <p className="mt-6 text-lg leading-8 text-gray-600">
-              Arbitor answers questions from your internal corpus with grounded citations — and continuously optimises itself for quality, cost, and latency using principled swarm-based algorithms.
+              Arbitor answers questions from your internal corpus with grounded citations — and continuously optimises itself for quality, cost, and latency using proprietary optimisation algorithms.
             </p>
             <p className="mt-4 text-base font-medium text-gray-500 italic">
               "You set the rules. Arbitor makes your AI follow them."
@@ -70,7 +70,7 @@ export default function ArbitorPage() {
                 </svg>
               </div>
               <h3 className="font-semibold text-gray-900">Continuous Optimisation</h3>
-              <p className="mt-2 text-sm text-gray-600">PSO-based algorithms tune retrieval, prompting, and decoding parameters — optimising quality, cost, and latency together.</p>
+              <p className="mt-2 text-sm text-gray-600">Proprietary algorithms tune retrieval, prompting, and decoding parameters — optimising quality, cost, and latency together.</p>
             </div>
             <div className="text-center">
               <div className="mx-auto rounded-full bg-primary/10 w-12 h-12 flex items-center justify-center mb-4">
