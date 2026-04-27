@@ -2,8 +2,8 @@
   "family": "atlas-consult-task",
   "networkMode": "awsvpc",
   "requiresCompatibilities": ["FARGATE"],
-  "cpu": "512",
-  "memory": "1024",
+  "cpu": "256",
+  "memory": "512",
   "executionRoleArn": "arn:aws:iam::879986119914:role/ecsTaskExecutionRole",
   "containerDefinitions": [
     {
@@ -57,7 +57,7 @@
         }
       },
       "healthCheck": {
-        "command": ["CMD-SHELL", "curl -f http://localhost:3000/api/health || exit 1"],
+        "command": ["CMD-SHELL", "curl -f http://$(hostname -i | tr -d ' '):3000/api/health || exit 1"],
         "interval": 30,
         "timeout": 10,
         "retries": 3,
