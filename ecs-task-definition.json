@@ -39,6 +39,10 @@
         {
           "name": "NOTIFY_EMAIL",
           "valueFrom": "arn:aws:ssm:eu-west-2:879986119914:parameter/arbitor/NOTIFY_EMAIL"
+        },
+        {
+          "name": "MIGRATE_SECRET",
+          "valueFrom": "arn:aws:ssm:eu-west-2:879986119914:parameter/arbitor/MIGRATE_SECRET"
         }
       ],
       "portMappings": [
