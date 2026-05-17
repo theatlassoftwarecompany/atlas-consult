@@ -25,7 +25,7 @@ export default function AboutPage() {
             <div className="slide-left relative">
               <div className="aspect-square overflow-hidden rounded-2xl bg-gray-100">
                 <Image
-                  src="/founder.jpg"
+                  src="/founder.png"
                   alt="Kingsley Osime, Founder"
                   width={600}
                   height={600}
