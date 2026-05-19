@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import AnimationProvider from "./components/AnimationProvider";
 
 export const metadata: Metadata = {
-  title: "The Atlas Company | AI Strategy & Implementation",
-  description: "Enterprise AI consulting that delivers measurable results. Strategic planning, technical assessment, and implementation support for organizations navigating AI adoption.",
-  keywords: ["AI consulting", "AI strategy", "enterprise AI", "AI implementation", "machine learning consulting"],
+  title: "The Atlas Company | AI Infrastructure Platform",
+  description: "Atlas is a cloud-agnostic AI platform for regulated enterprises. One interface to deploy, configure, and optimise AI systems — powered by principled optimisation.",
+  keywords: ["AI platform", "AI infrastructure", "AI optimisation", "regulated AI", "enterprise AI", "cloud agnostic AI", "Arbitor"],
 };
 
 export default function RootLayout({
@@ -15,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="antialiased">
-        {children}
+        <AnimationProvider>{children}</AnimationProvider>
       </body>
     </html>
   );

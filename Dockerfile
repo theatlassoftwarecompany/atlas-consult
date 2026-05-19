@@ -22,8 +22,10 @@ WORKDIR /app
 
 ENV NODE_ENV=production
 
-# Create non-root user
-RUN groupadd --system --gid 1001 nodejs && \
+# Install curl for health checks and create non-root user
+RUN apt-get update && apt-get install -y --no-install-recommends curl && \
+    rm -rf /var/lib/apt/lists/* && \
+    groupadd --system --gid 1001 nodejs && \
     useradd --system --uid 1001 --gid nodejs nextjs
 
 # Copy built application
@@ -39,6 +41,5 @@ USER nextjs
 EXPOSE 3000
 
 ENV PORT=3000
-ENV HOSTNAME="0.0.0.0"
 
-CMD ["node", "server.js"]
+CMD ["sh", "-c", "HOSTNAME=0.0.0.0 node server.js"]
